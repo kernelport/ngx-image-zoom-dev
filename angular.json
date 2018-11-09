@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "NgxImageZoom": {
+      "root": "projects/ngx-image-zoom",
+      "sourceRoot": "projects/ngx-image-zoom/src",
+      "projectType": "library",
+      "prefix": "niz",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-image-zoom/tsconfig.lib.json",
+            "project": "projects/ngx-image-zoom/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-image-zoom/src/test.ts",
+            "tsConfig": "projects/ngx-image-zoom/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-image-zoom/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-image-zoom/tsconfig.lib.json",
+              "projects/ngx-image-zoom/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-image-zoom-dev"

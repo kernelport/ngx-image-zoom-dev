@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-image-zoom": [
+        "dist/ngx-image-zoom"
+      ],
+      "ngx-image-zoom/*": [
+        "dist/ngx-image-zoom/*"
+      ]
+    }
   }
 }
