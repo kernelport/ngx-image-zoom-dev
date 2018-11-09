@@ -7,6 +7,11 @@ ng new ngx-image-zoom-dev --prefix ld
 ? Which stylesheet format would you like to use? CSS
 ```
 
+## Build/Update the lib
+```sh
+ng build NgxImageZoom
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
