@@ -1,5 +1,5 @@
 <div #zoomContainer class="ngxImageZoomContainer"
-     [style.width.px]="this.thumbWidth" [style.height.px]="this.thumbHeight">
+     [style.width.px]="this.styleWidth" [style.height.px]="this.styleHeight">
 
     <img #imageThumbnail class="ngxImageZoomThumbnail" src="{{ thumbImage }}" width="100%" height="100%"
          (load)="onThumbImageLoaded()"/>

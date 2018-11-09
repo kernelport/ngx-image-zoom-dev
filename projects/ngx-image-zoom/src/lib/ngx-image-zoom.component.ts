@@ -35,6 +35,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     public fullImage: string;
     public thumbWidth: number;
     public thumbHeight: number;
+    public styleWidth = 0;
+    public styleHeight = 0;    
     public fullWidth: number;
     public fullHeight: number;
     public lensWidth = 100;
@@ -48,7 +50,7 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     private scrollParentSelector: string;
 
     private baseRatio: number;
-    private minZoomRatio;
+    private minZoomRatio: number;
     private maxZoomRatio = 2;
     private xRatio: number;
     private yRatio: number;
@@ -66,6 +68,16 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
 
   constructor(private renderer: Renderer2) { }
 
+    @Input('styleWidth')
+    public set setStyleWidth(width: number) {
+        this.styleWidth = Number(width);
+    }
+
+    @Input('styleHeight')
+    public set setStyleHeight(height: number) {
+        this.styleHeight = Number(height);
+    }
+    
     @Input('thumbImage')
     public set setThumbImage(thumbImage: string) {
         this.thumbImageLoaded = false;
@@ -188,6 +200,12 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
      * Template helper methods
      */
     onThumbImageLoaded() {
+        if (this.styleWidth == 0) {
+            this.styleWidth = this.imageThumbnail.nativeElement.naturalWidth;
+        }
+        if (this.styleHeight == 0) {
+            this.styleHeight = this.imageThumbnail.nativeElement.naturalHeight;
+        }
         this.thumbImageLoaded = true;
         this.checkImagesLoaded();
     }
@@ -373,8 +391,8 @@ export class NgxImageZoomComponent implements OnInit, OnChanges, AfterViewInit {
     }
 
     private calculateRatioAndOffset() {
-        this.thumbWidth = this.imageThumbnail.nativeElement.naturalWidth;
-        this.thumbHeight = this.imageThumbnail.nativeElement.naturalHeight;
+        this.thumbWidth = this.styleWidth; // imageThumbnail.nativeElement.naturalWidth;
+        this.thumbHeight = this.styleHeight; //imageThumbnail.nativeElement.naturalHeight;
 
         // If lens is disabled, set lens size to equal thumb size and position it on top of the thumb
         if (!this.enableLens) {
