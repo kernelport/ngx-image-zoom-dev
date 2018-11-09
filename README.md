@@ -1,6 +1,11 @@
 # NgxImageZoomDev
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
+```sh
+ng new ngx-image-zoom-dev --prefix ld
+? Would you like to add Angular routing? No
+? Which stylesheet format would you like to use? CSS
+```
 
 ## Development server
 
